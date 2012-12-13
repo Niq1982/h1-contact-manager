@@ -23,3 +23,54 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+register_activation_hook( __FILE__, 'h1cm_activate' );
+
+/**
+ * Constants
+ */
+define( 'H1CM_LABEL', 'h1_contact' );
+define( 'H1CM_PREFIX', 'h1cm_' );
+
+/**
+ * Hook our functions into WP hooks
+ */
+add_action( 'init', 'h1cm_init' );
+add_action( 'admin_init', 'h1cm_admin' );
+
+/**
+ * Tasks to run on activation
+ * @return void
+ */
+function h1cm_activate() {
+
+}
+/**
+ * Initialize the plugin
+ * 
+ * @return void
+ */
+function h1cm_init() {
+    /**
+     * Include custom post type definition
+     */
+    require_once( 'h1cm-post-type.php' );
+    h1cm_register_post_types();
+
+}
+
+/**
+ * Admin init
+ */
+function h1cm_admin() {
+    /**
+     * Include admin customizations (meta fields etc)
+     */
+    require_once( 'h1cm-admin.php' );
+
+    /**
+     * Register meta boxes
+     */
+    h1cm_register_meta_boxes();
+
+
+}
