@@ -1,4 +1,8 @@
 <?php
+/**
+ * Define meta fields for the Contact post type
+ * @return void
+ */
 function h1cm_meta_fields() {
 	$prefix = H1CM_PREFIX;
 
@@ -46,6 +50,12 @@ function h1cm_meta_fields() {
 					'desc'  => '',
 					'type'  => 'text',
 				),
+			array(
+					'name'  => __( 'Email address', 'h1cm' ),
+					'id'    => "{$prefix}email",
+					'desc'  => '',
+					'type'  => 'text',
+				),			
 			array(
 					'name'  => __( 'Title', 'h1cm' ),
 					'id'    => "{$prefix}title",
