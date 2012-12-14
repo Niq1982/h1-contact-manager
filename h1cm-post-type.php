@@ -53,30 +53,63 @@ function h1cm_register_post_types() {
  */
 function h1cm_register_taxonomies() {
 
-	// Add new taxonomy, make it hierarchical (like categories)
+	// Add organization taxonomy
 	$labels = array(
-		'name' => _x( 'Organizations', 'taxonomy general name' ),
-		'singular_name' => _x( 'Organization', 'taxonomy singular name' ),
-		'search_items' =>  __( 'Search Organizations' ),
-		'all_items' => __( 'All Organizations' ),
-		'parent_item' => __( 'Parent Organization' ),
-		'parent_item_colon' => __( 'Parent Organization:' ),
-		'edit_item' => __( 'Edit Organization' ), 
-		'update_item' => __( 'Update Organization' ),
-		'add_new_item' => __( 'Add New Organization' ),
-		'new_item_name' => __( 'New Organization Name' ),
-		'menu_name' => __( 'Organization' ),
+		'name' => _x( 'Organizations', 'taxonomy general name', 'h1cm' ),
+		'singular_name' => _x( 'Organization', 'taxonomy singular name', 'h1cm' ),
+		'search_items' =>  __( 'Search Organizations', 'h1cm' ),
+		'all_items' => __( 'All Organizations', 'h1cm' ),
+		'parent_item' => __( 'Parent Organization', 'h1cm' ),
+		'parent_item_colon' => __( 'Parent Organization:', 'h1cm' ),
+		'edit_item' => __( 'Edit Organization', 'h1cm' ), 
+		'update_item' => __( 'Update Organization', 'h1cm' ),
+		'add_new_item' => __( 'Add New Organization', 'h1cm' ),
+		'new_item_name' => __( 'New Organization Name', 'h1cm' ),
+		'menu_name' => __( 'Organization', 'h1cm' ),
 	);
 
 	$args = array(
 			'hierarchical' => true,
 			'labels' => $labels,
 			'show_ui' => true,
+			'show_in_nav_menus' => true,
 			'show_admin_column' => true,
 			'query_var' => true,
 			'rewrite' => array( 'slug' => 'org' ),
 		);
 
 	register_taxonomy( 'h1_organization', H1CM_LABEL, $args );
+
+	// Add group taxonomy
+	$labels = array(
+		'name' => _x( 'Groups', 'taxonomy general name', 'h1cm' ),
+		'singular_name' => _x( 'Group', 'taxonomy singular name', 'h1cm' ),
+		'search_items' =>  __( 'Search Groups', 'h1cm' ),
+		'all_items' => __( 'All Groups', 'h1cm' ),
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Edit Group', 'h1cm' ), 
+		'update_item' => __( 'Update Group', 'h1cm' ),
+		'add_new_item' => __( 'Add New Group', 'h1cm' ),
+		'new_item_name' => __( 'New Group Name', 'h1cm' ),
+		'popupar_items' => __( 'Popular groups', 'h1cm' ),
+	    'separate_items_with_commas' => __( 'Separate groups with commas', 'h1cm' ),
+	    'add_or_remove_items' => __( 'Add or remove groups', 'h1cm' ),
+	    'choose_from_most_used' => __( 'Choose from the most used groups', 'h1cm' ),		
+		'menu_name' => __( 'Group', 'h1cm' ),
+	);
+
+	$args = array(
+			'hierarchical' => false,
+			'labels' => $labels,
+			'show_ui' => true,
+			'show_in_nav_menus' => true,
+			'show_admin_column' => true,
+			'update_count_callback' => '_update_post_term_count',
+			'query_var' => true,
+			'rewrite' => array( 'slug' => 'group' ),
+		);
+
+	register_taxonomy( 'h1_group', H1CM_LABEL, $args );
 
 }

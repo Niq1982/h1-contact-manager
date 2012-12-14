@@ -96,6 +96,9 @@ function h1cm_admin() {
  */
 function h1cm_update_post( $post_id, $post ) {
 
+    if ( H1CM_LABEL != get_post_type( $post ) )
+        return;
+
     $content = '';
     $title = '';
 
@@ -133,7 +136,7 @@ function h1cm_update_post( $post_id, $post ) {
     $taxonomies = array( 'h1_organization', 'post_tag' );
     $terms = wp_get_object_terms( $post_id, $taxonomies, array( 'fields' => 'all' ) );
 
-    $content .= ',';
+    $content .= ',  ';
 
     foreach ( $terms as $term ) {
         $content .= ' ' . $term->name . ' ' . $term->description;

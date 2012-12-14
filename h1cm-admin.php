@@ -62,7 +62,7 @@ function h1cm_meta_fields() {
 					'desc'  => 'Eg. job title',
 					'type'  => 'text',
 				),
-			array(
+/*			array(
 				'name'    => __( 'Organization', 'h1cm' ),
 				'id'      => "{$prefix}organization",
 				'type'    => 'taxonomy',
@@ -74,7 +74,7 @@ function h1cm_meta_fields() {
 					// Additional arguments for get_terms() function. Optional
 					'args' => array()
 				),
-			),
+			),*/
 		)
 	);
 }
