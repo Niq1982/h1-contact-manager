@@ -42,7 +42,15 @@ add_action( 'admin_init', 'h1cm_admin' );
  * @return void
  */
 function h1cm_activate() {
-
+    /**
+     * Initialize post types and taxonomies,
+     * so they are available when flushing rewrites
+     */
+    h1cm_init();
+    /**
+     * Flushing rewrites ensures our post type & taxonomy slugs will work.
+     */
+    flush_rewrite_rules();
 }
 /**
  * Initialize the plugin
@@ -55,6 +63,7 @@ function h1cm_init() {
      */
     require_once( 'h1cm-post-type.php' );
     h1cm_register_post_types();
+    h1cm_register_taxonomies();
 
 }
 

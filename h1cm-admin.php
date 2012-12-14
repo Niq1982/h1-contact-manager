@@ -52,7 +52,19 @@ function h1cm_meta_fields() {
 					'desc'  => 'Eg. job title',
 					'type'  => 'text',
 				),
-
+			array(
+				'name'    => __( 'Organization', 'h1cm' ),
+				'id'      => "{$prefix}organization",
+				'type'    => 'taxonomy',
+				'options' => array(
+					// Taxonomy name
+					'taxonomy' => 'h1_organization',
+					// How to show taxonomy: 'checkbox_list' (default) or 'checkbox_tree', 'select_tree' or 'select'. Optional
+					'type' => 'select_tree',
+					// Additional arguments for get_terms() function. Optional
+					'args' => array()
+				),
+			),
 		)
 	);
 }
