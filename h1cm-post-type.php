@@ -53,7 +53,11 @@ function h1cm_register_post_types() {
  */
 function h1cm_register_taxonomies() {
 
-	// Add organization taxonomy
+	/**
+	 * Organization taxonomy
+	 *
+	 * The principal organization a contact belongs to, usually only one.
+	 */
 	$labels = array(
 		'name' => _x( 'Organizations', 'taxonomy general name', 'h1cm' ),
 		'singular_name' => _x( 'Organization', 'taxonomy singular name', 'h1cm' ),
@@ -80,7 +84,11 @@ function h1cm_register_taxonomies() {
 
 	register_taxonomy( 'h1_organization', H1CM_LABEL, $args );
 
-	// Add group taxonomy
+	/**
+	 * Group taxonomy
+	 *
+	 * Groups are meant for arbitrary tagging of contacts, for easy creation of
+	 */
 	$labels = array(
 		'name' => _x( 'Groups', 'taxonomy general name', 'h1cm' ),
 		'singular_name' => _x( 'Group', 'taxonomy singular name', 'h1cm' ),
