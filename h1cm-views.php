@@ -56,7 +56,7 @@ function h1cm_meta_field( $key, &$custom_fields ) {
 	$html = '';
 
 	if ( isset( $custom_fields[ H1CM_PREFIX . $key ][ 0 ] ) ) {
-	    $html = '<li>' . $custom_fields[ H1CM_PREFIX . $key ][ 0 ] . '</li>' ;
+	    $html = '<li>' . $custom_fields[ H1CM_PREFIX . $key ][ 0 ] . '</li> ' ;
 	}
 
 	return $html;
