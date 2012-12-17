@@ -20,7 +20,7 @@ function h1cm_entry_content( $content ) {
 	 * Store all custom fields in an array
 	 * @var array
 	 */
-    $custom_fields = get_post_custom( $post_id );
+    $custom_fields = get_post_custom();
 
     $content .= '<div class="h1cm-contact">';
 
