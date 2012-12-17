@@ -82,7 +82,12 @@ function h1cm_admin() {
      */
     h1cm_register_meta_boxes();
 
-
+    /**
+     * Move "Set featured image" box and modify text on post edit screen
+     */
+    add_action( 'do_meta_boxes', 'h1cm_move_featured_image_box' );
+    add_filter( 'admin_post_thumbnail_html', 'h1cm_post_thumbnail_html', 10, 2 );
+    add_filter( 'media_view_strings', 'h1cm_media_strings', 10, 2 );
 }
 /**
  * Clone meta fields and taxonomy terms into post_title and post_content
