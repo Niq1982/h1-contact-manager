@@ -69,6 +69,12 @@ function h1cm_init() {
      * Do actions on save (clone custom fields into title & content)
      */
     add_action( 'wp_insert_post', 'h1cm_update_post', 10, 2 );
+
+    /**
+     * Modify the_content and the_title on individual contact items
+     */
+    require_once( 'h1cm-views.php' );
+    add_filter( 'the_content', 'h1cm_entry_content' );
 }
 
 /**
