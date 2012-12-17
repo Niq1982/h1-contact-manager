@@ -36,10 +36,11 @@ function h1cm_entry_content( $content ) {
     $content .= h1cm_meta_field( 'phone1', &$custom_fields );
     $content .= h1cm_meta_field( 'phone2', &$custom_fields );
     $content .= h1cm_meta_field( 'email', &$custom_fields );
+    $content .= h1cm_meta_field( 'info', &$custom_fields );
     $content .= '</ul>';
     $content .= '</div>';
 
-    $content .= '</div><!-- .h1cm-contact -->'
+    $content .= '</div><!-- .h1cm-contact -->';
 
 	return $content;
 }

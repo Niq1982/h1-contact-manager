@@ -62,6 +62,12 @@ function h1cm_meta_fields() {
 					'desc'  => 'Eg. job title',
 					'type'  => 'text',
 				),
+			array(
+					'name'  => __( 'Additional info', 'h1cm' ),
+					'id'    => "{$prefix}info",
+					'desc'  => '',
+					'type'  => 'textarea',
+				),			
 /*			array(
 				'name'    => __( 'Organization', 'h1cm' ),
 				'id'      => "{$prefix}organization",
