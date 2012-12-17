@@ -121,3 +121,94 @@ function h1cm_register_taxonomies() {
 	register_taxonomy( 'h1_group', H1CM_LABEL, $args );
 
 }
+/**
+ * Clone meta fields and taxonomy terms into post_title and post_content
+ * for easy full-text search and sorting by title.
+ *
+ * Should be run on wp_insert_post hook.
+ * 
+ * @param  int $post_id
+ * @param  object $post
+ * @return void
+ */
+function h1cm_update_post( $post_id, $post ) {
+
+    if ( H1CM_LABEL != get_post_type( $post ) )
+        return;
+
+    $content = '';
+    $title = '';
+
+    $custom_fields = get_post_custom( $post_id );
+
+    $clone_into_title = array( 'lastname', 'firstname' );
+    $clone_into_content = array( 'email', 'phone1', 'phone2', 'title' );
+
+    /**
+     * Clone lastname, firstname into post_title
+     */
+    $count = 0;
+    foreach ( $clone_into_title as $key ) {
+        if ( ! empty( $custom_fields[ H1CM_PREFIX . $key ][ 0 ] ) ) {
+            if ( $count > 0 ) $title .= ', ';
+            $title .= $custom_fields[ H1CM_PREFIX . $key ][ 0 ];
+            $count++;
+        }
+    }    
+    /**
+     * Clone all the rest into post_content
+     */
+    $count = 0;
+    foreach ( $clone_into_content as $key ) {
+        if ( ! empty( $custom_fields[ H1CM_PREFIX . $key ][ 0 ] ) ) {
+            if ( $count > 0 ) $content .= ', ';
+            $content .= $custom_fields[ H1CM_PREFIX . $key ][ 0 ];
+            $count++;
+        }
+    }
+
+    /**
+     * Add taxonomy terms into post_content too
+     */
+    $taxonomies = array( 'h1_organization', 'post_tag' );
+    $terms = wp_get_object_terms( $post_id, $taxonomies, array( 'fields' => 'all' ) );
+
+    $content .= ',  ';
+
+    foreach ( $terms as $term ) {
+        $content .= ' ' . $term->name . ' ' . $term->description;
+    }    
+
+    /**
+     * Get the post as an array
+     * @var array
+     */
+    $post = get_post( $post_id, 'ARRAY_A' );
+    /**
+     * Set title
+     */
+    if ( !empty( $title ) ) { 
+        $post[ 'post_title' ] = $title;
+    }
+    /**
+     * Set content
+     */
+    if ( !empty( $content ) ) $post[ 'post_content' ] = $content;
+    /**
+     * Make sure we have a readable slug
+     */
+    $post[ 'post_name' ] = sanitize_title( $title, $post_id );
+    /**
+     * Remove actions to avoid infinite loops
+     */
+    remove_all_actions( 'save_post' );
+    remove_action( 'wp_insert_post', 'h1cm_update_post', 10, 2 );
+    /**
+     * Finally save the data
+     */
+    wp_insert_post( $post );
+    /**
+     * Restore action
+     */
+    add_action( 'wp_insert_post', 'h1cm_update_post', 10, 2 );
+}
