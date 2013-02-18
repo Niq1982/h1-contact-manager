@@ -120,6 +120,42 @@ function h1cm_register_taxonomies() {
 
 	register_taxonomy( 'h1_group', H1CM_LABEL, $args );
 
+	/**
+	 * Unit taxonomy
+	 *
+	 * Units are meant for mostly K3 people
+	 */
+	$labels = array(
+		'name' => _x( 'Units', 'taxonomy general name', 'h1cm' ),
+		'singular_name' => _x( 'Unit', 'taxonomy singular name', 'h1cm' ),
+		'search_items' =>  __( 'Search Units', 'h1cm' ),
+		'all_items' => __( 'All Units', 'h1cm' ),
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Edit Unit', 'h1cm' ), 
+		'update_item' => __( 'Update Unit', 'h1cm' ),
+		'add_new_item' => __( 'Add New Unit', 'h1cm' ),
+		'new_item_name' => __( 'New Unit Name', 'h1cm' ),
+		'popupar_items' => __( 'Popular units', 'h1cm' ),
+	    'separate_items_with_commas' => __( 'Separate units with commas', 'h1cm' ),
+	    'add_or_remove_items' => __( 'Add or remove units', 'h1cm' ),
+	    'choose_from_most_used' => __( 'Choose from the most used units', 'h1cm' ),		
+		'menu_name' => __( 'Unit', 'h1cm' ),
+	);
+
+	$args = array(
+			'hierarchical' => false,
+			'labels' => $labels,
+			'show_ui' => true,
+			'show_in_nav_menus' => true,
+			'show_admin_column' => true,
+			'update_count_callback' => '_update_post_term_count',
+			'query_var' => true,
+			'rewrite' => array( 'slug' => 'unit' ),
+		);
+
+	register_taxonomy( 'h1_unit', H1CM_LABEL, $args );
+
 }
 /**
  * Clone meta fields and taxonomy terms into post_title and post_content
