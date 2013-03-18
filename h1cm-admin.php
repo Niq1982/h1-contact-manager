@@ -6,9 +6,9 @@
 function h1cm_meta_fields() {
 	$prefix = H1CM_PREFIX;
 
-	global $meta_boxes;
+	global $h1cm_meta_boxes;
 
-	$meta_boxes[] = array(
+	$h1cm_meta_boxes[] = array(
 		// Meta box ID ( Not the id of the field! )
 		'id' => $prefix . 'info',
 
@@ -89,7 +89,7 @@ function h1cm_meta_fields() {
  * Plug in to the Meta Box plugin and register the meta boxes
  * @return void
  */
-function h1cm_register_meta_boxes() {
+function h1cm_register_h1cm_meta_boxes() {
     // Make sure there's no errors when the plugin is deactivated or during upgrade
     if ( !class_exists( 'RW_Meta_Box' ) )
         return;
@@ -102,8 +102,8 @@ function h1cm_register_meta_boxes() {
     /**
      * Register meta boxes
      */
-    global $meta_boxes;
-    foreach ( $meta_boxes as $meta_box )
+    global $h1cm_meta_boxes;
+    foreach ( $h1cm_meta_boxes as $meta_box )
     {
         new RW_Meta_Box( $meta_box );
     }
