@@ -63,6 +63,12 @@ function h1cm_meta_fields() {
 					'type'  => 'text',
 				),
 			array(
+					'name'  => __( 'English Title', 'h1cm' ),
+					'id'    => "{$prefix}title_en",
+					'desc'  => 'Eg. job title',
+					'type'  => 'text',
+				),			
+			array(
 					'name'  => __( 'Additional info', 'h1cm' ),
 					'id'    => "{$prefix}info",
 					'desc'  => '',

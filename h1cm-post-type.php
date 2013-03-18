@@ -40,7 +40,7 @@ function h1cm_register_post_types() {
 				'has_archive' => true,
 				'hierarchical' => false,
 				'menu_position' => null,
-				'supports' => array( 'thumbnail' )
+				'supports' => array( 'thumbnail', 'custom-fields', 'page-attributes' )
 			);
 
 	register_post_type( H1CM_LABEL , $args );
