@@ -95,7 +95,7 @@ function h1cm_meta_fields() {
  * Plug in to the Meta Box plugin and register the meta boxes
  * @return void
  */
-function h1cm_register_h1cm_meta_boxes() {
+function h1cm_register_meta_boxes() {
     // Make sure there's no errors when the plugin is deactivated or during upgrade
     if ( !class_exists( 'RW_Meta_Box' ) )
         return;
