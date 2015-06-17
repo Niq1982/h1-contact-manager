@@ -32,11 +32,7 @@ function h1cm_entry_content( $content ) {
 
     $content .= '<div class="h1cm-contact-info">';
     $content .= '<ul class="h1cm-contact-info-list">';
-    if ( defined('ICL_LANGUAGE_CODE') && ICL_LANGUAGE_CODE == 'en' ) :
-    $content .= h1cm_meta_field( 'title_en', $custom_fields );
-    else :
     $content .= h1cm_meta_field( 'title', $custom_fields );
-    endif;
     $content .= h1cm_meta_field( 'phone1', $custom_fields );
     $content .= h1cm_meta_field( 'phone2', $custom_fields );
     $content .= h1cm_meta_field( 'email', $custom_fields );
