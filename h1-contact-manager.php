@@ -3,7 +3,7 @@
 Plugin Name: H1 Contact Manager
 Plugin URI: http://h1.fi
 Description: Add and manage contacts
-Version: 0.2
+Version: 0.2.1
 Author: Daniel Koskinen / H1
 Author URI: http://h1.fi
 License: GPL2

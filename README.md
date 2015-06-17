@@ -7,6 +7,9 @@ TODO:
 
 ## Changelog
 
+### 0.2.1
+- Admin column for contact group taxonomy
+
 ### 0.2
 - Replaced original taxonomies with a generic "Contact group" taxonomy
 - Simplified post type naming
