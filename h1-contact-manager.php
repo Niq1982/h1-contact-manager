@@ -8,7 +8,7 @@ Author: Daniel Koskinen / H1
 Author URI: http://h1.fi
 License: GPL2
 */
-/*  Copyright 2012  Daniel Koskinen (email : dani@h1.fi)
+/*  Copyright 2012-2015  Daniel Koskinen (email : dani@h1.fi)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
