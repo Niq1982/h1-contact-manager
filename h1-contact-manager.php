@@ -3,7 +3,7 @@
 Plugin Name: H1 Contact Manager
 Plugin URI: http://h1.fi
 Description: Add and manage contacts
-Version: 0.1
+Version: 0.2
 Author: Daniel Koskinen / H1
 Author URI: http://h1.fi
 License: GPL2
@@ -28,8 +28,10 @@ register_activation_hook( __FILE__, 'h1cm_activate' );
 /**
  * Constants
  */
-define( 'H1CM_LABEL', 'h1_contact' );
-define( 'H1CM_PREFIX', 'h1cm_' );
+if ( !defined( 'H1CM_LABEL' ) )
+    define( 'H1CM_LABEL', 'contact' );
+if ( !defined( 'H1CM_PREFIX' ) )
+    define( 'H1CM_PREFIX', '_' );
 
 /**
  * Hook our functions into WP hooks
@@ -58,6 +60,8 @@ function h1cm_activate() {
  * @return void
  */
 function h1cm_init() {
+    load_plugin_textdomain( 'h1cm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
     /**
      * Include custom post type definition
      */
@@ -89,7 +93,7 @@ function h1cm_admin() {
     /**
      * Register meta boxes
      */
-    h1cm_register_meta_boxes();
+    add_filter( 'rwmb_meta_boxes', 'h1cm_register_meta_boxes' );
 
     /**
      * Move "Set featured image" box and modify text on post edit screen

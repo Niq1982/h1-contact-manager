@@ -40,7 +40,7 @@ function h1cm_register_post_types() {
 				'has_archive' => true,
 				'hierarchical' => false,
 				'menu_position' => null,
-				'supports' => array( 'thumbnail', 'custom-fields', 'page-attributes' )
+				'supports' => array( 'thumbnail', 'page-attributes' )
 			);
 
 	register_post_type( H1CM_LABEL , $args );
@@ -53,108 +53,39 @@ function h1cm_register_post_types() {
  */
 function h1cm_register_taxonomies() {
 
-	/**
-	 * Organization taxonomy
-	 *
-	 * The principal organization a contact belongs to, usually only one.
-	 */
+
 	$labels = array(
-		'name' => _x( 'Organizations', 'taxonomy general name', 'h1cm' ),
-		'singular_name' => _x( 'Organization', 'taxonomy singular name', 'h1cm' ),
-		'search_items' =>  __( 'Search Organizations', 'h1cm' ),
-		'all_items' => __( 'All Organizations', 'h1cm' ),
-		'parent_item' => __( 'Parent Organization', 'h1cm' ),
-		'parent_item_colon' => __( 'Parent Organization:', 'h1cm' ),
-		'edit_item' => __( 'Edit Organization', 'h1cm' ), 
-		'update_item' => __( 'Update Organization', 'h1cm' ),
-		'add_new_item' => __( 'Add New Organization', 'h1cm' ),
-		'new_item_name' => __( 'New Organization Name', 'h1cm' ),
-		'menu_name' => __( 'Organization', 'h1cm' ),
+		'name'					=> _x( 'Contact Groups', 'Taxonomy plural name', 'h1cm' ),
+		'singular_name'			=> _x( 'Contact Group', 'Taxonomy singular name', 'h1cm' ),
+		'search_items'			=> __( 'Search Contact Groups', 'h1cm' ),
+		'popular_items'			=> __( 'Popular Contact Groups', 'h1cm' ),
+		'all_items'				=> __( 'All Contact Groups', 'h1cm' ),
+		'parent_item'			=> __( 'Parent Contact Group', 'h1cm' ),
+		'parent_item_colon'		=> __( 'Parent Contact Group', 'h1cm' ),
+		'edit_item'				=> __( 'Edit Contact Group', 'h1cm' ),
+		'update_item'			=> __( 'Update Contact Group', 'h1cm' ),
+		'add_new_item'			=> __( 'Add New Contact Group', 'h1cm' ),
+		'new_item_name'			=> __( 'New Contact Group Name', 'h1cm' ),
+		'add_or_remove_items'	=> __( 'Add or remove Contact Groups', 'h1cm' ),
+		'choose_from_most_used'	=> __( 'Choose from most used Contact Groups', 'h1cm' ),
+		'menu_name'				=> __( 'Contact Group', 'h1cm' ),
 	);
 
 	$args = array(
-			'hierarchical' => true,
-			'labels' => $labels,
-			'show_ui' => true,
-			'show_in_nav_menus' => true,
-			'show_admin_column' => true,
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'org' ),
-		);
-
-	register_taxonomy( 'h1_organization', H1CM_LABEL, $args );
-
-	/**
-	 * Group taxonomy
-	 *
-	 * Groups are meant for arbitrary tagging of contacts, for easy creation of
-	 */
-	$labels = array(
-		'name' => _x( 'Groups', 'taxonomy general name', 'h1cm' ),
-		'singular_name' => _x( 'Group', 'taxonomy singular name', 'h1cm' ),
-		'search_items' =>  __( 'Search Groups', 'h1cm' ),
-		'all_items' => __( 'All Groups', 'h1cm' ),
-		'parent_item' => null,
-		'parent_item_colon' => null,
-		'edit_item' => __( 'Edit Group', 'h1cm' ), 
-		'update_item' => __( 'Update Group', 'h1cm' ),
-		'add_new_item' => __( 'Add New Group', 'h1cm' ),
-		'new_item_name' => __( 'New Group Name', 'h1cm' ),
-		'popupar_items' => __( 'Popular groups', 'h1cm' ),
-	    'separate_items_with_commas' => __( 'Separate groups with commas', 'h1cm' ),
-	    'add_or_remove_items' => __( 'Add or remove groups', 'h1cm' ),
-	    'choose_from_most_used' => __( 'Choose from the most used groups', 'h1cm' ),		
-		'menu_name' => __( 'Group', 'h1cm' ),
+		'labels'            => $labels,
+		'public'            => true,
+		'show_in_nav_menus' => true,
+		'show_admin_column' => false,
+		'hierarchical'      => false,
+		'show_tagcloud'     => true,
+		'show_ui'           => true,
+		'query_var'         => true,
+		'rewrite'           => true,
+		'query_var'         => true,
+		'capabilities'      => array(),
 	);
 
-	$args = array(
-			'hierarchical' => false,
-			'labels' => $labels,
-			'show_ui' => true,
-			'show_in_nav_menus' => true,
-			'show_admin_column' => true,
-			'update_count_callback' => '_update_post_term_count',
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'group' ),
-		);
-
-	register_taxonomy( 'h1_group', H1CM_LABEL, $args );
-
-	/**
-	 * Unit taxonomy
-	 *
-	 * Units are meant for mostly K3 people
-	 */
-	$labels = array(
-		'name' => _x( 'Units', 'taxonomy general name', 'h1cm' ),
-		'singular_name' => _x( 'Unit', 'taxonomy singular name', 'h1cm' ),
-		'search_items' =>  __( 'Search Units', 'h1cm' ),
-		'all_items' => __( 'All Units', 'h1cm' ),
-		'parent_item' => null,
-		'parent_item_colon' => null,
-		'edit_item' => __( 'Edit Unit', 'h1cm' ), 
-		'update_item' => __( 'Update Unit', 'h1cm' ),
-		'add_new_item' => __( 'Add New Unit', 'h1cm' ),
-		'new_item_name' => __( 'New Unit Name', 'h1cm' ),
-		'popupar_items' => __( 'Popular units', 'h1cm' ),
-	    'separate_items_with_commas' => __( 'Separate units with commas', 'h1cm' ),
-	    'add_or_remove_items' => __( 'Add or remove units', 'h1cm' ),
-	    'choose_from_most_used' => __( 'Choose from the most used units', 'h1cm' ),		
-		'menu_name' => __( 'Unit', 'h1cm' ),
-	);
-
-	$args = array(
-			'hierarchical' => false,
-			'labels' => $labels,
-			'show_ui' => true,
-			'show_in_nav_menus' => true,
-			'show_admin_column' => true,
-			'update_count_callback' => '_update_post_term_count',
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'unit' ),
-		);
-
-	register_taxonomy( 'h1_unit', H1CM_LABEL, $args );
+	register_taxonomy( 'contact-group', array( H1CM_LABEL ), $args );
 
 }
 /**
@@ -206,7 +137,7 @@ function h1cm_update_post( $post_id, $post ) {
     /**
      * Add taxonomy terms into post_content too
      */
-    $taxonomies = array( 'h1_organization', 'post_tag' );
+    $taxonomies = array( 'contact-group' );
     $terms = wp_get_object_terms( $post_id, $taxonomies, array( 'fields' => 'all' ) );
 
     $content .= ',  ';

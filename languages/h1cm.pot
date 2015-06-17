@@ -1,0 +1,180 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: H1 Contact Manager\n"
+"POT-Creation-Date: 2015-06-17 15:06+0200\n"
+"PO-Revision-Date: 2015-06-17 14:52+0200\n"
+"Last-Translator: Daniel Koskinen <daniel.koskinen@gmail.com>\n"
+"Language-Team: Daniel Koskinen <daniel.koskinen@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: h1-contact-manager.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: h1cm-admin.php:14
+msgid "Contact information"
+msgstr ""
+
+#: h1cm-admin.php:28
+msgid "Last name"
+msgstr ""
+
+#: h1cm-admin.php:34
+msgid "First Name"
+msgstr ""
+
+#: h1cm-admin.php:40
+msgid "Phone 1"
+msgstr ""
+
+#: h1cm-admin.php:46
+msgid "Phone 2"
+msgstr ""
+
+#: h1cm-admin.php:52
+msgid "Email address"
+msgstr ""
+
+#: h1cm-admin.php:58
+msgid "Title"
+msgstr ""
+
+#: h1cm-admin.php:64
+msgid "Additional info"
+msgstr ""
+
+#: h1cm-admin.php:82
+msgid "Contact photo"
+msgstr ""
+
+#: h1cm-admin.php:101 h1cm-admin.php:102 h1cm-admin.php:133
+#: h1cm-admin.php:134
+msgid "Set contact photo"
+msgstr ""
+
+#: h1cm-admin.php:114
+msgid "Remove contact photo"
+msgstr ""
+
+#: h1cm-post-type.php:12 h1cm-post-type.php:24
+msgid "Contacts"
+msgstr ""
+
+#: h1cm-post-type.php:13
+msgid "Contact"
+msgstr ""
+
+#: h1cm-post-type.php:14
+msgid "Add new"
+msgstr ""
+
+#: h1cm-post-type.php:15
+msgid "Add new Contact"
+msgstr ""
+
+#: h1cm-post-type.php:16
+msgid "Edit Contact"
+msgstr ""
+
+#: h1cm-post-type.php:17
+msgid "New Contact"
+msgstr ""
+
+#: h1cm-post-type.php:18
+msgid "All Contacts"
+msgstr ""
+
+#: h1cm-post-type.php:19
+msgid "View Contact"
+msgstr ""
+
+#: h1cm-post-type.php:20
+msgid "Search Contacts"
+msgstr ""
+
+#: h1cm-post-type.php:21
+msgid "No Contacts found"
+msgstr ""
+
+#: h1cm-post-type.php:22
+msgid "No Contacts found in Trash"
+msgstr ""
+
+#: h1cm-post-type.php:58
+msgctxt "Taxonomy plural name"
+msgid "Contact Groups"
+msgstr ""
+
+#: h1cm-post-type.php:59
+msgctxt "Taxonomy singular name"
+msgid "Contact Group"
+msgstr ""
+
+#: h1cm-post-type.php:60
+msgid "Search Contact Groups"
+msgstr ""
+
+#: h1cm-post-type.php:61
+msgid "Popular Contact Groups"
+msgstr ""
+
+#: h1cm-post-type.php:62
+msgid "All Contact Groups"
+msgstr ""
+
+#: h1cm-post-type.php:63 h1cm-post-type.php:64
+msgid "Parent Contact Group"
+msgstr ""
+
+#: h1cm-post-type.php:65
+msgid "Edit Contact Group"
+msgstr ""
+
+#: h1cm-post-type.php:66
+msgid "Update Contact Group"
+msgstr ""
+
+#: h1cm-post-type.php:67
+msgid "Add New Contact Group"
+msgstr ""
+
+#: h1cm-post-type.php:68
+msgid "New Contact Group Name"
+msgstr ""
+
+#: h1cm-post-type.php:69
+msgid "Add or remove Contact Groups"
+msgstr ""
+
+#: h1cm-post-type.php:70
+msgid "Choose from most used Contact Groups"
+msgstr ""
+
+#: h1cm-post-type.php:71
+msgid "Contact Group"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "H1 Contact Manager"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://h1.fi"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add and manage contacts"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Daniel Koskinen / H1"
+msgstr ""

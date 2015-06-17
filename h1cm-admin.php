@@ -3,12 +3,10 @@
  * Define meta fields for the Contact post type
  * @return void
  */
-function h1cm_meta_fields() {
+function h1cm_register_meta_boxes( $meta_boxes ) {
 	$prefix = H1CM_PREFIX;
 
-	global $h1cm_meta_boxes;
-
-	$h1cm_meta_boxes[] = array(
+	$meta_boxes[] = array(
 		// Meta box ID ( Not the id of the field! )
 		'id' => $prefix . 'info',
 
@@ -63,56 +61,15 @@ function h1cm_meta_fields() {
 					'type'  => 'text',
 				),
 			array(
-					'name'  => __( 'English Title', 'h1cm' ),
-					'id'    => "{$prefix}title_en",
-					'desc'  => 'Eg. job title',
-					'type'  => 'text',
-				),			
-			array(
 					'name'  => __( 'Additional info', 'h1cm' ),
 					'id'    => "{$prefix}info",
 					'desc'  => '',
 					'type'  => 'textarea',
 				),			
-/*			array(
-				'name'    => __( 'Organization', 'h1cm' ),
-				'id'      => "{$prefix}organization",
-				'type'    => 'taxonomy',
-				'options' => array(
-					// Taxonomy name
-					'taxonomy' => 'h1_organization',
-					// How to show taxonomy: 'checkbox_list' (default) or 'checkbox_tree', 'select_tree' or 'select'. Optional
-					'type' => 'select_tree',
-					// Additional arguments for get_terms() function. Optional
-					'args' => array()
-				),
-			),*/
 		)
 	);
-}
 
-/**
- * Plug in to the Meta Box plugin and register the meta boxes
- * @return void
- */
-function h1cm_register_meta_boxes() {
-    // Make sure there's no errors when the plugin is deactivated or during upgrade
-    if ( !class_exists( 'RW_Meta_Box' ) )
-        return;
-
-	/**
-	 * Define the fields
-	 */
-	h1cm_meta_fields();
-
-    /**
-     * Register meta boxes
-     */
-    global $h1cm_meta_boxes;
-    foreach ( $h1cm_meta_boxes as $meta_box )
-    {
-        new RW_Meta_Box( $meta_box );
-    }
+	return $meta_boxes;
 }
 
 /**
