@@ -92,6 +92,9 @@ function h1cm_move_featured_image_box() {
  * @return string
  */
 function h1cm_post_thumbnail_html( $content, $post_id ) {
+	if ( H1CM_LABEL != get_post_type( $post ) )
+		return $content;
+
 	global $content_width, $_wp_additional_image_sizes;
 
 	$post = get_post( $post_id );
