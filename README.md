@@ -7,6 +7,10 @@ TODO:
 
 ## Changelog
 
+### 0.3
+- Add support for Custom Meta Boxes by Humanmade
+  https://github.com/humanmade/Custom-Meta-Boxes/
+
 ### 0.2.1
 - Admin column for contact group taxonomy
 
