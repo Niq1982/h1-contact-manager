@@ -24,7 +24,7 @@ function h1cm_entry_content( $content ) {
 
     $content .= '<div class="h1cm-contact">';
 
-    if ( has_post_thumbnail( $post->ID ) ) {
+    if ( has_post_thumbnail( $post->ID ) && !function_exists( 'genesis' ) ) {
     	$content .= '<div class="h1cm-contact-photo">';
     	$content .= get_the_post_thumbnail( $post->ID, 'thumbnail' );
     	$content .= '</div>';
