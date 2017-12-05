@@ -39,9 +39,9 @@ function zfcm_entry_content( $content ) {
 	$content .= zfcm_meta_field( 'phone2', $custom_fields );
 	$content .= zfcm_meta_field( 'email', $custom_fields );
 	$content .= zfcm_meta_field( 'info', $custom_fields );
-	$content .= implode( ', ', karvi_get_contact_taxonomies( $post->ID, 'title' ) );
-	$content .= implode( ', ', karvi_get_contact_taxonomies( $post->ID, 'location' ) );
-	$content .= implode( ', ', karvi_get_contact_taxonomies( $post->ID, 'contact-group' ) );
+	$content .= implode( ', ', zfcm_get_contact_taxonomies( $post->ID, 'title' ) );
+	$content .= implode( ', ', zfcm_get_contact_taxonomies( $post->ID, 'location' ) );
+	$content .= implode( ', ', zfcm_get_contact_taxonomies( $post->ID, 'contact-group' ) );
 	$content .= '</ul>';
 	$content .= '</div>';
 
